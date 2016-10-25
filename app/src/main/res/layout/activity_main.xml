@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.it5.newtab.ui.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/realtabcontent"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/windows_bg"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="?attr/lineColor"/>
+
+        <com.it5.newtab.widget.MyFragmentTabHost
+            android:id="@android:id/tabhost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            />
+        <!-- 快速操作按钮 -->
+        <ImageView
+            android:id="@+id/quick_option_iv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_nav_add_selector"
+            />
+    </FrameLayout>
+</LinearLayout>
