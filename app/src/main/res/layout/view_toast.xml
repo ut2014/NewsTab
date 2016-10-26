@@ -1,43 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.it5.newtab.MainActivity">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:background="@drawable/toast_background" >
 
-    <FrameLayout
-        android:id="@+id/realtabcontent"
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1" />
-    <FrameLayout
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="?attr/windows_bg"
-        >
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="?attr/lineColor"/>
-        <com.it5.newtab.widget.MyFragmentTabHost
-            android:id="@android:id/tabhost"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            />
-        <!-- 快速操作按钮 -->
+        android:paddingBottom="@dimen/space_8"
+        android:paddingLeft="10.0dip"
+        android:paddingRight="10.0dip"
+        android:paddingTop="@dimen/space_8" >
+
         <ImageView
-            android:id="@+id/quick_option_iv"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_nav_add_selector"
-            />
-    </FrameLayout>
-</LinearLayout>
+            android:id="@+id/icon_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="40.0dip"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/space_8"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toRightOf="@id/icon_iv"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="16.0dip" />
+    </RelativeLayout>
+</FrameLayout>

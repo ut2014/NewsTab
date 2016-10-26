@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.res.Resources;
 import android.os.Build;
 import android.view.Gravity;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.it5.newtab.R;
+import com.it5.newtab.util.StringUtils;
 
 /**
  * Created by IT5 on 2016/10/25.
@@ -52,6 +54,42 @@ public class BaseApplication extends Application {
         return _resource;
     }
 
+
+    //放入已读文章列表中
+    public static void putReadedPostList(String prefileName,String key,String value){
+        SharedPreferences pre=getPreferences(prefileName);
+        int size=pre.getAll().size();
+        Editor edit=pre.edit();
+        if (size>=100) {
+            edit.clear();
+        }
+        edit.putString(key,value);
+        apply(edit);
+    }
+
+    //读取是否是已读的文章列表
+     public static boolean isOnReadedPostList(String prefFileName,String key){
+        return getPreferences(prefFileName).contains(key);
+     }
+
+
+    /**
+     * 记录列表上次刷新时间
+     */
+    public static void putToLastRefreshTime(String key,String value){
+        SharedPreferences pre=getPreferences(LAST_REFRESH_TIME);
+        Editor editor=pre.edit();
+        editor.putString(key,value);
+        apply(editor);
+    }
+
+    /**
+     *获取列表的上次刷新时间
+     */
+    public static String getLastRefreshTime(String key){
+        return getPreferences(LAST_REFRESH_TIME).getString(key, StringUtils.getCurTimeStr());
+    }
+
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     public static void apply(SharedPreferences.Editor editor){
         if (isAtLeastGB) {
@@ -60,7 +98,53 @@ public class BaseApplication extends Application {
             editor.commit();
         }
     }
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public static SharedPreferences getPreferences(){
+        SharedPreferences pre=context().getSharedPreferences(PREF_NAME,MODE_MULTI_PROCESS);
+        return pre;
+    }
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public static SharedPreferences getPreferences(String preName){
+        SharedPreferences pre=context().getSharedPreferences(preName,MODE_MULTI_PROCESS);
+        return pre;
+    }
+    public static void set(String key, int value) {
+        Editor editor = getPreferences().edit();
+        editor.putInt(key, value);
+        apply(editor);
+    }
 
+    public static void set(String key, boolean value) {
+        Editor editor = getPreferences().edit();
+        editor.putBoolean(key, value);
+        apply(editor);
+    }
+
+    public static void set(String key, String value) {
+        Editor editor = getPreferences().edit();
+        editor.putString(key, value);
+        apply(editor);
+    }
+
+    public static boolean get(String key, boolean defValue) {
+        return getPreferences().getBoolean(key, defValue);
+    }
+
+    public static String get(String key, String defValue) {
+        return getPreferences().getString(key, defValue);
+    }
+
+    public static int get(String key, int defValue) {
+        return getPreferences().getInt(key, defValue);
+    }
+
+    public static long get(String key, long defValue) {
+        return getPreferences().getLong(key, defValue);
+    }
+
+    public static float get(String key, float defValue) {
+        return getPreferences().getFloat(key, defValue);
+    }
 
 
     public static String string(int id) {
