@@ -15,6 +15,9 @@
         <item name="infoTextColor">@color/day_infoTextColor</item>
 
         <item name="sliding_block_bg">@drawable/image_sliding_block</item>
+        <item name="textColor">@color/day_textColor</item>
+
+        <item name="layout_item_bg">@drawable/day_list_item_background</item>
     </style>
 
     <!-- 夜间模式 -->
@@ -29,8 +32,10 @@
         <item name="lineColor">@color/night_line_color</item>
         <item name="layout_bg_normal">@color/night_layout_bg_normal</item>
         <item name="infoTextColor">@color/night_infoTextColor</item>
-
+        <item name="textColor">@color/night_textColor</item>
         <item name="sliding_block_bg">@drawable/night_image_sliding_block</item>
+
+        <item name="layout_item_bg">@drawable/night_list_item_background</item>
     </style>
 
 </resources>

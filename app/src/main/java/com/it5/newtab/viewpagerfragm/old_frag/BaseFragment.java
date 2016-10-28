@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.it5.newtab.AppContext;
 import com.it5.newtab.R;
-import com.it5.newtab.interf.BaseViewInterface;
+import com.it5.newtab.interf.BaseFragmentInterface;
 import com.it5.newtab.ui.dialog.DialogControl;
 
 /**
@@ -22,7 +22,7 @@ import com.it5.newtab.ui.dialog.DialogControl;
  * Created by IT5 on 2016/10/26.
  */
 
-public class BaseFragment extends Fragment implements View.OnClickListener,BaseViewInterface{
+public class BaseFragment extends Fragment implements View.OnClickListener,BaseFragmentInterface {
 
     public static final int STATE_NONE=0;
     public static final int STATE_REFRESH=1;
@@ -89,7 +89,7 @@ public class BaseFragment extends Fragment implements View.OnClickListener,BaseV
     }
 
     @Override
-    public void initView() {
+    public void initView(View view) {
 
     }
 

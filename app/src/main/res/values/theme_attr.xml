@@ -1,7 +1,9 @@
 <resources>
+   <attr name="textColor" format="reference"/>
    <attr name="layout_bg_normal" format="reference"/>
    <attr name="sliding_block_bg" format="reference"/>
    <attr name="windows_bg" format="reference"/>
    <attr name="lineColor" format="reference"/>
    <attr name="infoTextColor" format="reference"/>
+   <attr name="layout_item_bg" format="reference"/>
 </resources>
