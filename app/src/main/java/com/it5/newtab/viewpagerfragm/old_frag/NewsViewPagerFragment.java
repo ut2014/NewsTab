@@ -7,6 +7,7 @@ import com.it5.newtab.adapter.ViewPageFragmentAdapter;
 import com.it5.newtab.interf.OnTabReselectListener;
 import com.it5.newtab.old_been.BlogList;
 import com.it5.newtab.old_been.NewsList;
+import com.it5.newtab.viewpagerfragm.scroll_bottom.ScrollBottomFragment;
 
 /**
  * 资讯viewpager页面
@@ -20,7 +21,7 @@ public class NewsViewPagerFragment extends BaseViewPagerFragment implements OnTa
         String[] title=getResources().getStringArray(R.array.news_viewpage_arrays);
         adapter.addTab(title[0],"news",NewsFragment.class,getBundle(NewsList.CATALOG_ALL));
         adapter.addTab(title[1],"news_week",NewsFragment.class,getBundle(NewsList.CATALOG_WEEK));
-        adapter.addTab(title[2],"latest_blog",BlogFragment.class,getBundle(BlogList.CATALOG_LATEST));
+        adapter.addTab(title[2],"latest_blog",ScrollBottomFragment.class,getBundle(BlogList.CATALOG_LATEST));
         adapter.addTab(title[3],"recommend_blog",BlogFragment.class,getBundle(BlogList.CATALOG_RECOMMEND));
 
        /* adapter.addTab(title[4],"recommend_blog2",BlogFragment.class,getBundle(BlogList.CATALOG_RECOMMEND));
