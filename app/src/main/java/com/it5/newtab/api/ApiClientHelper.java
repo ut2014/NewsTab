@@ -4,7 +4,7 @@ package com.it5.newtab.api;
 import com.it5.newtab.AppContext;
 
 public class ApiClientHelper {
-	
+
 	/**
 	 * 获得请求的服务端数据的userAgent
 	 * @param appContext
@@ -20,4 +20,5 @@ public class ApiClientHelper {
 		ua.append("/" + appContext.getAppId());// 客户端唯一标识
 		return ua.toString();
 	}
+
 }

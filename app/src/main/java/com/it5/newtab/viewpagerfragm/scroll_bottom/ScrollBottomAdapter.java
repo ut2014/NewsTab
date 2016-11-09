@@ -25,7 +25,7 @@ public class ScrollBottomAdapter extends ListAdapter{
 
 
     static class ViewHolder{
-        TextView mTextView;
+        static TextView mTextView;
         public ViewHolder(View view){
             mTextView= (TextView) view.findViewById(android.R.id.text1);
         }

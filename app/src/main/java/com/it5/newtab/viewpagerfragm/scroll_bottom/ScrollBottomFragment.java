@@ -511,7 +511,10 @@ public class ScrollBottomFragment extends Fragment implements OnClickListener, A
     }
 
     protected List<String> readList(Serializable seri) {
-        return null;
+        for (int i=0;i<15;i++) {
+            mDatas.add("demo"+i);
+        }
+        return mDatas;
     }
 
     private String getCacheKey() {

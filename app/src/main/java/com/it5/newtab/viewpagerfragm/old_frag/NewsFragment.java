@@ -9,6 +9,7 @@ import com.it5.newtab.interf.OnTabReselectListener;
 import com.it5.newtab.old_been.ListBaseAdapter;
 import com.it5.newtab.old_been.News;
 import com.it5.newtab.old_been.NewsList;
+import com.it5.newtab.util.UIHelper;
 import com.it5.newtab.util.XmlUtils;
 import com.it5.newtab.widget.EmptyLayout;
 
@@ -62,13 +63,13 @@ public class NewsFragment extends BaseListFragment<News> implements
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
         News news = mAdapter.getItem(position);
-        /*if (news != null) {
+        if (news != null) {
             UIHelper.showNewsRedirect(view.getContext(), news);
 
             // 放入已读列表
             saveToReadedList(view, NewsList.PREF_READED_NEWS_LIST, news.getId()
                     + "");
-        }*/
+        }
     }
 
     @Override

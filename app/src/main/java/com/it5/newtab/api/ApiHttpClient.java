@@ -67,4 +67,12 @@ public class ApiHttpClient {
         Log.d("BASE_CLIENT", "request:" + url);
         return url;
     }
+
+
+    public static void post(String partUrl, RequestParams params,
+                            AsyncHttpResponseHandler handler) {
+        client.post(getAbsoluteApiUrl(partUrl), params, handler);
+        log(new StringBuilder("POST ").append(partUrl).append("&")
+                .append(params).toString());
+    }
 }

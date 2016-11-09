@@ -23,6 +23,10 @@ import android.widget.ZoomButtonsController;
 
 import com.it5.newtab.AppConfig;
 import com.it5.newtab.AppContext;
+import com.it5.newtab.old_been.News;
+import com.it5.newtab.ui.LoginActivity;
+import com.it5.newtab.ui.old.DetailActivity;
+import com.it5.newtab.viewpagerfragm.old_frag.CommentFragment;
 
 /**
  * 界面帮助类
@@ -229,5 +233,51 @@ public class UIHelper {
     //未实现
     public static void openBrowser(Context context, String url) {
 
+    }
+
+    /**
+     * 新闻超链接点击跳转
+     */
+    public static void showNewsRedirect(Context context,News news){
+        String url=news.getUrl();
+        // 如果是活动则直接跳转活动详情页面
+        String eventUrl=news.getNewType().getEventUrl();
+        if (!StringUtils.isEmpty(eventUrl)) {
+            showNewsDetail(context,StringUtils.toInt(news.getNewType().getAttachment()));
+            return;
+        }
+
+    }
+
+    /**
+     * 显示活动详情
+     * @param context
+     * @param eventID
+     */
+    public static void showEventDetail(Context context, int eventID) {
+        Intent intent=new Intent(context,DetailActivity.class);
+        intent.putExtra("id",eventID);
+        intent.putExtra(DetailActivity.BUNDLE_KEY_DISPLAY_TYPE,
+                DetailActivity.DISPLAY_EVENT);
+        context.startActivity(intent);
+    }
+
+    public static void showComment(Context context,int id,int catalog) {
+        Intent intent = new Intent(context, DetailActivity.class);
+        intent.putExtra(CommentFragment.BUNDLE_KEY_ID,id);
+        intent.putExtra(CommentFragment.BUNDLE_KEY_CATALOG, catalog);
+        intent.putExtra(DetailActivity.BUNDLE_KEY_DISPLAY_TYPE,
+                DetailActivity.DISPLAY_COMMENT);
+        context.startActivity(intent);
+    }
+
+    /**
+     * 显示登录界面
+     *
+     * @param context
+     */
+    public static void showLoginActivity(Context context) {
+        Intent intent = new Intent(context, LoginActivity.class);
+        context.startActivity(intent);
     }
 }

@@ -111,4 +111,11 @@ public class AppConfig {
         props.setProperty(key, value);
         setProps(props);
     }
+
+    public void remove(String... key) {
+        Properties props = get();
+        for (String k : key)
+            props.remove(k);
+        setProps(props);
+    }
 }

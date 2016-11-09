@@ -57,4 +57,5 @@ public class NewsViewPagerFragment extends BaseViewPagerFragment implements OnTa
     public void onTabReselect() {
 
     }
+
 }
